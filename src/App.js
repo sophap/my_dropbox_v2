@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 import upload from "./upload.png";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
@@ -11,6 +11,7 @@ import {
   View,
   Card,
 } from "@aws-amplify/ui-react";
+import Navbar from "./components/Navbar";
 
 class App extends Component {
   state = {
@@ -62,20 +63,22 @@ class App extends Component {
     }
   };
   render() {
-    const { signOut } = this.props;
+    const { signOut, user } = this.props;
     return (
-      <View className="App">
-        <Card>
-          <Heading level={1}>My Dropbox</Heading>
-          <Image src={upload} className="App-logo" alt="upload" />
-          <div>
-            <input type="file" onChange={this.onFileChange} />
-            <button onClick={this.onFileUpload}>Upload</button>
-          </div>
-          {this.fileData()}
-        </Card>
-        <Button onClick={signOut}>Sign Out</Button>
-      </View>
+      <>
+        <Navbar signOut={signOut} user={user} />
+        <View className="App">
+          <Card>
+            <Heading level={1}>My Dropbox</Heading>
+            <Image src={upload} className="App-logo" alt="upload" />
+            <div>
+              <input type="file" onChange={this.onFileChange} />
+              <button onClick={this.onFileUpload}>Upload</button>
+            </div>
+            {this.fileData()}
+          </Card>
+        </View>
+      </>
     );
   }
 }
