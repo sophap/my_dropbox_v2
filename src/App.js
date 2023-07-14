@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import upload from "./upload.png";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
