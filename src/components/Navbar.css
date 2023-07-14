@@ -26,17 +26,18 @@ nav {
   color: white;
 }
 
+.nav-center h3 {
+  cursor: pointer;
+  margin-top: 1.6rem;
+  margin-left: 2rem;
+}
+
 /* 160px */
 
-@media screen and (min-width: 800px) {
-  .nav-header {
-    padding: 0;
-  }
-  .nav-center {
-    max-width: 1170px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.nav-center {
+  max-width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

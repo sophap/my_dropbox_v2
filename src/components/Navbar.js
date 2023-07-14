@@ -8,7 +8,7 @@ const Navbar = ({ signOut, user }) => {
         <div className="nav-header">
           <h1 href="#">My Dropbox</h1>
         </div>
-
+        <h3>View Files</h3>
         <div className="div-2">
           <span>Hello, {username}</span>
           <Button onClick={signOut}>Sign Out</Button>
