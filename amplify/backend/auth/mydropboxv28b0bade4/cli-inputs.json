@@ -1,0 +1,80 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "identityPoolName": "mydropboxv28b0bade4_identitypool_8b0bade4",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "mydrop8b0bade4",
+    "userPoolName": "mydropboxv28b0bade4_userpool_8b0bade4",
+    "autoVerifiedAttributes": [
+      "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+      "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "vERIFY YOUR EMAIL",
+    "emailVerificationMessage": "Uour verification code is'{####}'",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+      "email",
+      "family_name",
+      "given_name",
+      "preferred_username"
+    ],
+    "aliasAttributes": [],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": "30",
+    "userpoolClientWriteAttributes": [
+      "nickname",
+      "email",
+      "family_name",
+      "given_name",
+      "preferred_username"
+    ],
+    "userpoolClientReadAttributes": [
+      "preferred_username"
+    ],
+    "userpoolClientLambdaRole": "mydrop8b0bade4_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": true,
+    "sharedId": "8b0bade4",
+    "resourceName": "mydropboxv28b0bade4",
+    "authSelections": "identityPoolAndUserPool",
+    "useDefault": "manual",
+    "usernameAttributes": [
+      "email"
+    ],
+    "triggers": {},
+    "userPoolGroupList": [],
+    "serviceName": "Cognito",
+    "verificationBucketName": "mydropboxv28b0bade4verificationbucket",
+    "usernameCaseSensitive": false,
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [],
+    "permissions": [],
+    "thirdPartyAuth": false,
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "hostedUI": false,
+    "authProviders": [],
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    }
+  }
+}
