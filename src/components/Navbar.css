@@ -1,0 +1,42 @@
+/* ============= GLOBAL CSS =============== */
+
+/* ============= PROJECT CSS =============== */
+nav {
+  background: #063251;
+  color: white;
+}
+
+.nav-header {
+  cursor: pointer;
+}
+
+.div-2 {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2rem;
+  align-items: center;
+}
+
+.div-2 span {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.div-2 Button {
+  color: white;
+}
+
+/* 160px */
+
+@media screen and (min-width: 800px) {
+  .nav-header {
+    padding: 0;
+  }
+  .nav-center {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
