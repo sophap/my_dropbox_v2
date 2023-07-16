@@ -2,12 +2,16 @@
 
 /* ============= PROJECT CSS =============== */
 nav {
-  background: #063251;
+  background: #001c30;
   color: white;
 }
 
 .nav-header {
   cursor: pointer;
+}
+
+.nav-header h1 {
+  color: white;
 }
 
 .div-2 {
@@ -29,7 +33,16 @@ nav {
 .nav-center h3 {
   cursor: pointer;
   margin-top: 1.6rem;
-  margin-left: 2rem;
+  margin-left: 2.5rem;
+  color: white;
+}
+
+.nav-center a:link {
+  text-decoration: none;
+}
+
+.nav-center h3:link {
+  text-decoration: none;
 }
 
 /* 160px */

@@ -4,6 +4,62 @@
   align-items: center;
 }
 
+body {
+  background-color: #f0faf9;
+}
+
+.page {
+  color: #001c30;
+  padding-bottom: 6rem;
+}
+
+.header {
+  padding-top: 1rem;
+}
+
+.input__field {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+input[type="file"]::file-selector-button {
+  color: white;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  border: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #176b87;
+  height: 35px;
+}
+
+.input__field input {
+  border: 1px solid grey;
+  padding-left: 0px;
+  border-radius: 2px;
+}
+
+.input__field button {
+  height: 35px;
+  border-radius: 5px;
+  background-color: #176b87;
+  border: transparent;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  margin-left: 1rem;
+  transition: background-color 0.4s;
+}
+
+.input__field button:hover {
+  color: #176b87;
+  background: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -39,8 +95,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-.container {
-  align-items: center;
-  justify-content: center;
 }

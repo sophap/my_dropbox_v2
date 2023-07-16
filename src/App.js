@@ -1,78 +1,33 @@
-import React, { Component } from "react";
-// import axios from "axios";
-import upload from "./upload.png";
-import "./App.css";
+// import React, { Component } from "react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import HomeLayout from "./pages/HomeLayout";
+import Homepage from "./pages/Homepage";
+import Filespage from "./pages/Filespage";
 import "@aws-amplify/ui-react/styles.css";
-import {
-  withAuthenticator,
-  Button,
-  Heading,
-  Image,
-  View,
-  Card,
-} from "@aws-amplify/ui-react";
-import Navbar from "./components/Navbar";
-import { useState } from "react";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const App = ({ signOut, user }) => {
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [fileUploadedSuccessfully, setFileUploadedSuccessfully] =
-    useState(false);
-
-  const onFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
-  const onFileUpload = () => {
-    const formData = new FormData();
-    formData.append("demo file", selectedFile, selectedFile.name);
-
-    //call api
-    // console.log(formData);
-    setSelectedFile(null);
-    setFileUploadedSuccessfully(true);
-  };
-
-  const fileData = () => {
-    if (selectedFile) {
-      return (
-        <div>
-          <h2>File Details:</h2>
-          <p>File Name: {selectedFile.name}</p>
-          <p>File Type: {selectedFile.type}</p>
-          <p>Last Modified: {selectedFile.lastModifiedDate.toDateString()}</p>
-        </div>
-      );
-    } else if (fileUploadedSuccessfully) {
-      return (
-        <div>
-          <br />
-          <h4>Your file has been uploaded successfully</h4>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <br />
-          <h4>Choose a file and then press the upload button</h4>
-        </div>
-      );
-    }
-  };
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomeLayout signOut={signOut} user={user} />,
+      errorElement: <h2>There was an error...</h2>,
+      children: [
+        {
+          index: true,
+          element: <Homepage />,
+        },
+        {
+          path: "files",
+          element: <Filespage />,
+        },
+      ],
+    },
+  ]);
   return (
     <>
-      <Navbar signOut={signOut} user={user} />
-      <View className="App">
-        <Card>
-          <Heading level={1}>My Dropbox</Heading>
-          <Image src={upload} className="App-logo" alt="upload" />
-          <div>
-            <input type="file" onChange={onFileChange} />
-            <button onClick={onFileUpload}>Upload</button>
-          </div>
-          {fileData()}
-        </Card>
-      </View>
+      <RouterProvider router={router} />
     </>
   );
 };
