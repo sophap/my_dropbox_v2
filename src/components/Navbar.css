@@ -10,6 +10,11 @@ nav {
   cursor: pointer;
 }
 
+.nav-header h1:hover {
+  /* color: #dafffb; */
+  text-decoration: underline;
+}
+
 .nav-header h1 {
   color: white;
 }
@@ -30,11 +35,14 @@ nav {
   color: white;
 }
 
-.nav-center h3 {
+.nav-center p {
   cursor: pointer;
-  margin-top: 1.6rem;
-  margin-left: 2.5rem;
   color: white;
+  font-weight: 600;
+}
+
+.nav-center p:hover {
+  text-decoration: underline;
 }
 
 .nav-center a:link {

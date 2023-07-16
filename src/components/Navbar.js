@@ -12,11 +12,12 @@ const Navbar = ({ signOut, user }) => {
             <h1>My Dropbox</h1>
           </a>
         </div>
-        <a href="/files">
-          <h3>View Files</h3>
-        </a>
+
         <div className="div-2">
           <span>Hello, {username}</span>
+          <a href="/files">
+            <p>View Files</p>
+          </a>
           <Button onClick={signOut}>Sign Out</Button>
         </div>
       </div>

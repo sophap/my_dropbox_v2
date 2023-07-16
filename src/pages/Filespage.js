@@ -1,15 +1,29 @@
 import "./Filespage.css";
+import file2 from "../assets/file3.txt";
+import file4 from "../assets/file4.jpg";
 
 const Filespage = () => {
+  const getExtenstion = (file) => {
+    const split__array = file.split(".");
+    const extension = split__array[split__array.length - 1];
+    return extension;
+  };
+
   return (
     <div className="file__container">
       <p className="files__header">Your Files</p>
       <div className="file__list">
         <div className="file__item">
-          <img
-            src="https://images.pexels.com/photos/259915/pexels-photo-259915.jpeg?auto=compress&cs=tinysrgb&w=400"
-            alt="source file"
-          />
+          {getExtenstion(file2) === "jpg" ? (
+            <img
+              src="https://images.pexels.com/photos/1250643/pexels-photo-1250643.jpeg?auto=compress&cs=tinysrgb&w=400"
+              alt="source file"
+            />
+          ) : (
+            <div className="img">
+              <p>.{getExtenstion(file2)}</p>
+            </div>
+          )}
           <p>
             Name: <span>File name</span>
           </p>
@@ -17,14 +31,22 @@ const Filespage = () => {
         </div>
 
         <div className="file__item">
-          <img
-            src="https://images.pexels.com/photos/1250643/pexels-photo-1250643.jpeg?auto=compress&cs=tinysrgb&w=400"
-            alt="source file"
-          />
+          {getExtenstion(file4) === "jpg" ? (
+            <img
+              src="https://images.pexels.com/photos/1250643/pexels-photo-1250643.jpeg?auto=compress&cs=tinysrgb&w=400"
+              alt="source file"
+            />
+          ) : (
+            <div className="img">
+              <p>.{getExtenstion(file4)}</p>
+            </div>
+          )}
+
           <p>file details</p>
           <button>Download</button>
         </div>
 
+        {/* 
         <div className="file__item">
           <img
             src="https://images.pexels.com/photos/1486213/pexels-photo-1486213.jpeg?auto=compress&cs=tinysrgb&w=400"
@@ -50,48 +72,7 @@ const Filespage = () => {
           />
           <p>file details</p>
           <button>Download</button>
-        </div>
-
-        <div className="file__item">
-          <img
-            src="https://imgd.aeplcdn.com/1280x720/n/cw/ec/44686/activa-6g-right-front-three-quarter.jpeg?q=80"
-            alt="source file"
-          />
-          <p>file details</p>
-          <button>Download</button>
-        </div>
-        <div className="file__item">
-          <img
-            src="https://imgd.aeplcdn.com/1280x720/n/cw/ec/44686/activa-6g-right-front-three-quarter.jpeg?q=80"
-            alt="source file"
-          />
-          <p>file details</p>
-          <button>Download</button>
-        </div>
-        <div className="file__item">
-          <img
-            src="https://imgd.aeplcdn.com/1280x720/n/cw/ec/44686/activa-6g-right-front-three-quarter.jpeg?q=80"
-            alt="source file"
-          />
-          <p>file details</p>
-          <button>Download</button>
-        </div>
-        <div className="file__item">
-          <img
-            src="https://imgd.aeplcdn.com/1280x720/n/cw/ec/44686/activa-6g-right-front-three-quarter.jpeg?q=80"
-            alt="source file"
-          />
-          <p>file details</p>
-          <button>Download</button>
-        </div>
-        <div className="file__item">
-          <img
-            src="https://imgd.aeplcdn.com/1280x720/n/cw/ec/44686/activa-6g-right-front-three-quarter.jpeg?q=80"
-            alt="source file"
-          />
-          <p>file details</p>
-          <button>Download</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
