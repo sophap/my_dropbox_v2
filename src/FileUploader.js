@@ -24,9 +24,10 @@ class FileUploader extends Component {
       const accessToken = session.getAccessToken().getJwtToken();
       formData.append('token', accessToken); 
 
-      const response = await fetch('https://lwh35fi9y5.execute-api.us-east-1.amazonaws.com/Development/file', {
-        method: 'PUT',
+      const response = await fetch('https://g2pvpafaw1.execute-api.us-east-1.amazonaws.com/Development/file', {
+        method: 'POST',
         body: formData,
+        mode: 'no-cors',
       });
 
       if (response.ok) {
@@ -42,7 +43,7 @@ class FileUploader extends Component {
 
   fetchFileList = async () => {
     try {
-      const response = await fetch('https://lwh35fi9y5.execute-api.us-east-1.amazonaws.com/Development/file', {
+      const response = await fetch('https://g2pvpafaw1.execute-api.us-east-1.amazonaws.com/Development/file', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -62,7 +63,7 @@ class FileUploader extends Component {
 
   deleteFile = async fileName => {
     try {
-      const response = await fetch('https://lwh35fi9y5.execute-api.us-east-1.amazonaws.com/Development/file', {
+      const response = await fetch('https://g2pvpafaw1.execute-api.us-east-1.amazonaws.com/Development/file', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
