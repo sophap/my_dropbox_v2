@@ -56,28 +56,30 @@ const Filespage = () => {
   const handleDownload = (file) => {
     // Create a temporary anchor element to trigger the download
     const link = document.createElement('a');
-    link.href = file.Url; // Replace with the actual URL of the file in S3
+    link.href = file.url; // Replace with the actual URL of the file in S3
     link.download = file.file; // Specify the filename for the download
     link.target = '_blank'; // Open the link in a new tab
     link.click(); // Programmatically trigger the download
   };
 
-  const handleDelete = async (fileId) => {
+  const handleDelete = async (file) => {
     const username = (await Auth.currentAuthenticatedUser()).username;
     const folderName = username; // Assuming the folder name is the same as the username
-    const fileName = fileId;
+    const fileName = file.file;
     try {
       const response = await fetch('https://oibedj0s0d.execute-api.us-east-1.amazonaws.com/Development/file', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ folderName, fileName }), // Send the file ID or any other identifier to identify the file to delete
+        body: JSON.stringify({ folderName, fileName, token: accessToken }), // Send the file ID or any other identifier to identify the file to delete
       });
       if (response.ok) {
         console.log('File deleted successfully');
         // Update the files state to remove the deleted file from the UI
-        setFiles((prevFiles) => prevFiles.filter((file) => file.id !== fileId));
+        setFiles((prevFiles) => prevFiles.filter((fileItem) => fileItem.file !== file.file));
+        window.location.reload();
+
       } else {
         console.log('Failed to delete file');
       }
@@ -94,9 +96,8 @@ const Filespage = () => {
           <li key={index}>
             {/* Display file details or provide links to download/view files */}
             <span>{file.file}</span>
-            <a href={file.url} target="_blank" rel="noopener noreferrer">Download</a>
             <button onClick={() => handleDownload(file)}>Download</button>
-            <button onClick={() => handleDelete(file.id)}>Delete</button>
+            <button onClick={() => handleDelete(file)}>Delete</button>
           </li>
         ))}
       </ul>
