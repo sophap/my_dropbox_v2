@@ -28,7 +28,7 @@ input[type="file"]::file-selector-button {
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
-
+  margin-right: 0.5rem;
   border: transparent;
   font-size: 1rem;
   font-weight: 600;
@@ -38,7 +38,6 @@ input[type="file"]::file-selector-button {
 
 .input__field input {
   border: 1px solid grey;
-  padding-left: 0px;
   border-radius: 2px;
 }
 
