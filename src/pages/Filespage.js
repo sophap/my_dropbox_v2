@@ -46,33 +46,7 @@ const Filespage = () => {
           <button>Download</button>
         </div>
 
-        {/* 
-        <div className="file__item">
-          <img
-            src="https://images.pexels.com/photos/1486213/pexels-photo-1486213.jpeg?auto=compress&cs=tinysrgb&w=400"
-            alt="source file"
-          />
-          <p>file details</p>
-          <button>Download</button>
-        </div>
-
-        <div className="file__item">
-          <img
-            src="https://images.pexels.com/photos/3628700/pexels-photo-3628700.jpeg?auto=compress&cs=tinysrgb&w=400"
-            alt="source file"
-          />
-          <p>file details</p>
-          <button>Download</button>
-        </div>
-
-        <div className="file__item">
-          <img
-            src="https://images.pexels.com/photos/4006576/pexels-photo-4006576.jpeg?auto=compress&cs=tinysrgb&w=400"
-            alt="source file"
-          />
-          <p>file details</p>
-          <button>Download</button>
-        </div> */}
+        
       </div>
     </div>
   );

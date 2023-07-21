@@ -1,25 +1,45 @@
 import { useState } from "react";
 import upload from "../upload.png";
+import axios from "axios";
 import "../App.css";
-import { Heading, Image, View, Card } from "@aws-amplify/ui-react";
+import { Heading, Image } from "@aws-amplify/ui-react";
 
-const HomePage = () => {
+const HomePage = ({ token }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileUploadedSuccessfully, setFileUploadedSuccessfully] =
     useState(false);
+  const [base64, setBase64] = useState("");
+
+  const URL =
+    "https://oibedj0s0d.execute-api.us-east-1.amazonaws.com/Development/file";
 
   const onFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+    const file = event.target.files[0];
+    setSelectedFile(file);
+    const reader = new FileReader();
+
+    reader.onloadend = function () {
+      const base64String = reader.result.split(",")[1];
+      setBase64(base64String);
+    };
+
+    reader.readAsDataURL(file);
   };
 
-  const onFileUpload = () => {
-    const formData = new FormData();
-    formData.append("demo file", selectedFile, selectedFile.name);
-
-    //call api
-    // console.log(formData);
-    setSelectedFile(null);
-    setFileUploadedSuccessfully(true);
+  const onFileUpload = async () => {
+    try {
+      const response = await axios.post(URL, {
+        fileData: base64,
+        fileName: selectedFile.name,
+        fileType: selectedFile.type,
+        token: token,
+      });
+      console.log(response);
+      setSelectedFile(null);
+      setFileUploadedSuccessfully(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fileData = () => {

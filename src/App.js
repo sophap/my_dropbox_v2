@@ -1,13 +1,27 @@
 // import React, { Component } from "react";
 import { withAuthenticator } from "@aws-amplify/ui-react";
+import { Amplify, Auth } from "aws-amplify";
 import HomeLayout from "./pages/HomeLayout";
 import Homepage from "./pages/Homepage";
 import Filespage from "./pages/Filespage";
 import "@aws-amplify/ui-react/styles.css";
+import { useState, useEffect } from "react";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const App = ({ signOut, user }) => {
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const getToken = async () => {
+      const session = await Auth.currentSession();
+      const accessToken = session.accessToken.jwtToken;
+      setToken(accessToken);
+    };
+    getToken();
+  }, []);
+
+  // console.log(token);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -16,11 +30,11 @@ const App = ({ signOut, user }) => {
       children: [
         {
           index: true,
-          element: <Homepage />,
+          element: <Homepage token={token} />,
         },
         {
           path: "files",
-          element: <Filespage />,
+          element: <Filespage token={token} />,
         },
       ],
     },
