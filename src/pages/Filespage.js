@@ -42,11 +42,12 @@ const Filespage = () => {
           },
         }
         ); // Replace with your actual Lambda endpoint URL
+
         if (response.ok) {
           const data = await response.json();
           setFiles(data); // Assuming your Lambda response returns an array of files
         } else {
-          console.log('Failed to fetch files');
+            console.log('Failed to fetch files');
         }
       } catch (error) {
         console.error('Error fetching files:', error);
@@ -55,8 +56,8 @@ const Filespage = () => {
   const handleDownload = (file) => {
     // Create a temporary anchor element to trigger the download
     const link = document.createElement('a');
-    link.href = file.fileUrl; // Replace with the actual URL of the file in S3
-    link.download = file.fileName; // Specify the filename for the download
+    link.href = file.Url; // Replace with the actual URL of the file in S3
+    link.download = file.file; // Specify the filename for the download
     link.target = '_blank'; // Open the link in a new tab
     link.click(); // Programmatically trigger the download
   };
@@ -92,7 +93,8 @@ const Filespage = () => {
         {files.map((file, index) => (
           <li key={index}>
             {/* Display file details or provide links to download/view files */}
-            <span>{file.fileName}</span>
+            <span>{file.file}</span>
+            <a href={file.url} target="_blank" rel="noopener noreferrer">Download</a>
             <button onClick={() => handleDownload(file)}>Download</button>
             <button onClick={() => handleDelete(file.id)}>Delete</button>
           </li>
