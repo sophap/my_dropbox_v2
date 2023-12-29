@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Welcome to My Dropbox
+My Dropbox is a serverless web application that allows users to securely store and manage their files in the cloud. It leverages AWS services such as S3 for file storage, providing a scalable and reliable solution for storing and retrieving user files. This project incorporates user authentication, file uploading, versioning, and DNS/routing for a seamless user experience.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### My Dropbox URL
+https://dayo.d2y63o4ek7t5kv.amplifyapp.com/
 
-## Available Scripts
+## Task
+It starts with authentification
 
-In the project directory, you can run:
+Upload a file
 
-### `npm start`
+Versioning
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+DNS/Routing
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Description
+Implementing User Authentication:
 
-### `npm test`
+* Users can create an account and securely log in using their credentials.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Authentication is implemented using AWS Cognito to ensure that only authorized users can access the application.
 
-### `npm run build`
+File Upload:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Users can upload files from their local system to My Dropbox.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* The uploaded files are securely stored in AWS S3, ensuring data durability and availability.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* File metadata, such as the file name and upload timestamp, is recorded for easy file management.
 
-### `npm run eject`
+DNS/Routing:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* The application is configured with DNS and routing to provide a user-friendly domain name for accessing the application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Installation
+To run the serverless app:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Clone the project repository from GitHub.
 
-## Learn More
+* Install the necessary dependencies using `npm install`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Configure AWS Amplify and AWS Cognito for user authentication and AWS S3 for file storage.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Deploy the frontend and backend using AWS Amplify.
 
-### Code Splitting
+* Access the application in a web browser using the specified domain name.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
+Please Note: This project is not a Gandalf test project. After reaching out to the program manager, he said the project can be done with React and serverless technologies.
 
-### Analyzing the Bundle Size
+The App should be run from the web via :
+#### https://dayo.d2y63o4ek7t5kv.amplifyapp.com/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### The Core Team
+Adebayo Samuel, Praise Sophia Right and Adekoya Oladayo
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
+<span><img alt='Qwasar SV -- Software Engineering School's Logo' src='https://storage.googleapis.com/qwasar-public/qwasar-logo_50x50.png' width='20px'></span>
